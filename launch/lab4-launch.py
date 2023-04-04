@@ -15,11 +15,6 @@ def generate_launch_description():
     slam_share = get_package_share_directory("ME465_SLAM")
     return LaunchDescription([
         DeclareLaunchArgument(
-            name="simulation",
-            default_value="false",
-            description="Start simulation",
-        ),
-        DeclareLaunchArgument(
             name="visualization",
             default_value="true",
             description="Run Rviz",
@@ -28,21 +23,6 @@ def generate_launch_description():
             name="node",
             default_value="true",
             description="Run the lab 4 node",
-        ),
-        SetParameter(
-            name="use_sim_time",
-            value=LaunchConfiguration("simulation"),
-        ),
-        IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(
-                os.path.join(sim_share, "launch", "simulation-launch.py"),
-            ),
-            condition=IfCondition(LaunchConfiguration("simulation")),
-        ),
-        IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(
-                os.path.join(description_share, "launch", "description-launch.py"),
-            ),
         ),
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(

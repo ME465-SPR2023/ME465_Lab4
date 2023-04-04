@@ -6,7 +6,6 @@ from geometry_msgs.msg import PointStamped, Point
 from visualization_msgs.msg import Marker, MarkerArray
 import numpy as np
 from PIL import Image
-from tqdm import tqdm
 
 
 class Lab4(Node):
